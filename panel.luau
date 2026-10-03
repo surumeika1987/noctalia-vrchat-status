@@ -1,7 +1,7 @@
 --!nonstrict
 
 local statusNumber = 0
-local statusMessage = "Helper not connect"
+local statusMessage = "Connecting to helper..."
 local statusNames = { "Join Me", "Online", "Ask Me", "Do Not Disturb" }
 local isOpen = false
 local inputRevision = 0
