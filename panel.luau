@@ -8,6 +8,13 @@ local inputRevision = 0
 local messageDirty = false
 local sendInFlight = false
 local pendingPayload = nil
+local MAX_STATUS_MESSAGE_LENGTH = 32
+
+local function truncateStatusMessage(message)
+  local endByte = utf8.offset(message, MAX_STATUS_MESSAGE_LENGTH + 1)
+  if endByte == nil then return message end
+  return string.sub(message, 1, endByte - 1)
+end
 
 -- Serialize helper processes and retain only the newest request while one is running.
 local function sendPayload(payload)
@@ -110,9 +117,14 @@ function onStatusChanged(index)
 end
 
 function onMessageChanged(value)
-  statusMessage = value or ""
+  local message = value or ""
+  statusMessage = truncateStatusMessage(message)
   messageDirty = true
   noctalia.state.set("status_message", statusMessage)
+  if statusMessage ~= message then
+    inputRevision = inputRevision + 1
+    render()
+  end
 end
 
 noctalia.state.watch("status_number", function(value)
