@@ -1,7 +1,10 @@
 --!nonstrict
 
 local statusNumber = 0
-local statusMessage = "Need Login"
+local statusMessage = "Helper not connect"
+local hasHelperData = noctalia.state.get("status_received") == true
+local requestInFlight = false
+local REQUEST_INTERVAL_MS = 5000
 local DOT_WIDTH = 12
 local CONTENT_GAP = 6
 local PIXELS_PER_TEXT_UNIT = 8
@@ -92,6 +95,18 @@ local function publish()
   noctalia.state.set("status_message", statusMessage)
 end
 
+local function requestStatus()
+  if hasHelperData or requestInFlight then return end
+  local helper = noctalia.getConfig("helper_path")
+  if type(helper) ~= "string" or helper == "" then return end
+
+  requestInFlight = true
+  local started = noctalia.runAsync({ helper, "msg", "request-push" }, function(_result)
+    requestInFlight = false
+  end)
+  if not started then requestInFlight = false end
+end
+
 local function parsePayload(payload)
   if type(payload) ~= "string" or #payload < 2 then return nil, nil end
   local number = tonumber(string.sub(payload, 1, 1))
@@ -103,6 +118,7 @@ end
 
 function update()
   render()
+  requestStatus()
 end
 
 function onClick()
@@ -118,6 +134,8 @@ function onIpc(event, payload)
   end
   statusNumber = number
   statusMessage = message
+  hasHelperData = true
+  noctalia.state.set("status_received", true)
   publish()
   render()
 end
@@ -134,6 +152,9 @@ noctalia.state.watch("status_message", function(value)
     render()
   end
 end)
+noctalia.state.watch("status_received", function(value)
+  if value == true then hasHelperData = true end
+end)
 
 local savedNumber = noctalia.state.get("status_number")
 local savedMessage = noctalia.state.get("status_message")
@@ -141,6 +162,9 @@ if type(savedNumber) == "number" and type(savedMessage) == "string" then
   statusNumber = savedNumber
   statusMessage = savedMessage
 else
+  noctalia.state.set("status_received", false)
   publish()
 end
+noctalia.setUpdateInterval(REQUEST_INTERVAL_MS)
 render()
+requestStatus()

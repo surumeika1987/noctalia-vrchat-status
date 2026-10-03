@@ -1,7 +1,7 @@
 --!nonstrict
 
 local statusNumber = 0
-local statusMessage = "Need Login"
+local statusMessage = "Helper not connect"
 local statusNames = { "Join Me", "Online", "Ask Me", "Do Not Disturb" }
 local isOpen = false
 local inputRevision = 0
@@ -13,7 +13,7 @@ local function sendStatus()
     return
   end
   local payload = tostring(statusNumber) .. ":" .. statusMessage
-  noctalia.runAsync({ helper, "msg", payload }, function(result)
+  noctalia.runAsync({ helper, "msg", "push-status", payload }, function(result)
     if result.exitCode ~= 0 then
       noctalia.notifyError("VRChat Status", result.stderr ~= "" and result.stderr or "Could not contact helper")
     end
