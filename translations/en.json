@@ -1,21 +1,49 @@
 {
-  "settings.helper_path.label": "vrchat-status-helper path",
-  "settings.helper_path.description": "Path to the vrchat-status-helper executable.",
-  "settings.join_me_color.label": "Join Me",
-  "settings.online_color.label": "Online",
-  "settings.ask_me_color.label": "Ask Me",
-  "settings.do_not_disturb_color.label": "Do Not Disturb",
-  "settings.offline_color.label": "Offline",
-  "settings.message_color_mode.label": "Status message color",
-  "settings.message_color_mode.status": "Match status",
-  "settings.message_color_mode.fixed": "Fixed color",
-  "settings.message_color.label": "Fixed message color",
-  "settings.min_length.label": "Min Length",
-  "settings.min_length.description": "Minimum widget length in pixels.",
-  "settings.max_length.label": "Max Length",
-  "settings.max_length.description": "Maximum widget length in pixels; longer messages are shortened.",
-  "panel.status.label": "Status",
-  "panel.status.offline": "Offline",
-  "panel.message.label": "Status message",
-  "panel.message.placeholder": "Status message (optional)"
+  "settings": {
+    "helper_path": {
+      "label": "vrchat-status-helper path",
+      "description": "Path to the vrchat-status-helper executable."
+    },
+    "join_me_color": {
+      "label": "Join Me"
+    },
+    "online_color": {
+      "label": "Online"
+    },
+    "ask_me_color": {
+      "label": "Ask Me"
+    },
+    "do_not_disturb_color": {
+      "label": "Do Not Disturb"
+    },
+    "offline_color": {
+      "label": "Offline"
+    },
+    "message_color_mode": {
+      "label": "Status message color",
+      "status": "Match status",
+      "fixed": "Fixed color"
+    },
+    "message_color": {
+      "label": "Fixed message color"
+    },
+    "min_length": {
+      "label": "Min Length",
+      "description": "Minimum widget length in pixels."
+    },
+    "max_length": {
+      "label": "Max Length",
+      "description": "Maximum widget length in pixels; longer messages are shortened."
+    }
+  },
+  "panel": {
+    "status": {
+      "label": "Status",
+      "offline": "Offline"
+    },
+    "message": {
+      "label": "Status message",
+      "placeholder": "Status message (optional)"
+    }
+  }
 }
