@@ -94,6 +94,8 @@ The following options are available in the widget settings:
 | Offline | `Color` | Color of the Offline status |
 | Status message color | `Fixed color` `Match status` | Color mode for the status message |
 | Fixed message color | `Color` | Message color used when `Fixed color` is selected |
+| Min Length | `Integer` | Minimum widget size |
+| Max Length | `Integer` | Maximum widget size |
 
 ## Disclaimer
 

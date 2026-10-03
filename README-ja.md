@@ -91,6 +91,8 @@ noctalia msg panel-toggle surumeika1987/vrchat-status:status-panel
 | Offline | `色` | Offlineステータスの色 |
 | Status message color | `Fixed color` `Match status` | ステータスメッセージの色モード |
 | Fixed message color | `色` | `Fixed Color`の場合のメッセージの色 |
+| Min Length | `整数` | ウィジェットの最小サイズ |
+| Max Length | `整数` | ウィジェットの最大サイズ |
 
 ## 注意事項
 
