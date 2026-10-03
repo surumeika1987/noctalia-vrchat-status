@@ -5,23 +5,56 @@ local statusMessage = "Helper not connect"
 local statusNames = { "Join Me", "Online", "Ask Me", "Do Not Disturb" }
 local isOpen = false
 local inputRevision = 0
+local messageDirty = false
+local sendInFlight = false
+local pendingPayload = nil
 
-local function sendStatus()
+-- Serialize helper processes and retain only the newest request while one is running.
+local function sendPayload(payload)
+  if sendInFlight then
+    pendingPayload = payload
+    return true
+  end
+
   local helper = noctalia.getConfig("helper_path")
   if type(helper) ~= "string" or helper == "" then
     noctalia.notifyError("VRChat Status", "Configure the helper path first.")
-    return
+    return false
   end
-  local payload = tostring(statusNumber) .. ":" .. statusMessage
-  noctalia.runAsync({ helper, "msg", "push-status", payload }, function(result)
+
+  sendInFlight = true
+  local started = noctalia.runAsync({ helper, "msg", "push-status", payload }, function(result)
+    sendInFlight = false
     if result.exitCode ~= 0 then
       noctalia.notifyError("VRChat Status", result.stderr ~= "" and result.stderr or "Could not contact helper")
     end
+
+    if pendingPayload ~= nil then
+      local nextPayload = pendingPayload
+      pendingPayload = nil
+      if nextPayload ~= payload then sendPayload(nextPayload) end
+    end
   end)
+  if not started then
+    sendInFlight = false
+    noctalia.notifyError("VRChat Status", "Could not start helper")
+    return false
+  end
+  return true
+end
+
+local function sendStatus()
+  return sendPayload(tostring(statusNumber) .. ":" .. statusMessage)
+end
+
+local function sendDirtyMessage()
+  if not messageDirty then return end
+  if sendStatus() then messageDirty = false end
 end
 
 local function render()
-  panel.render(ui.column({ gap = 12, padding = 16 }, {
+  -- ui.input has no blur callback; a background click represents focus leaving it.
+  panel.render(ui.column({ gap = 12, padding = 16, onClick = "onPanelClicked" }, {
     ui.label({ text = noctalia.tr("panel.status.label"), fontWeight = "bold" }),
     ui.select({
       options = statusNames,
@@ -49,12 +82,18 @@ function onOpen(_context)
   local message = noctalia.state.get("status_message")
   if type(number) == "number" then statusNumber = number end
   if type(message) == "string" then statusMessage = message end
+  messageDirty = false
   render()
 end
 
 
 function onClose()
   isOpen = false
+  sendDirtyMessage()
+end
+
+function onPanelClicked()
+  sendDirtyMessage()
 end
 
 function onStatusChanged(index)
@@ -63,14 +102,14 @@ function onStatusChanged(index)
   if selected < 0 or selected > 3 then return end
   statusNumber = 4 - selected
   noctalia.state.set("status_number", statusNumber)
-  sendStatus()
+  if sendStatus() then messageDirty = false end
   render()
 end
 
 function onMessageChanged(value)
   statusMessage = value or ""
+  messageDirty = true
   noctalia.state.set("status_message", statusMessage)
-  sendStatus()
 end
 
 noctalia.state.watch("status_number", function(value)
