@@ -78,22 +78,22 @@ noctalia msg panel-toggle surumeika1987/vrchat-status:status-panel
 ## 設定
 プラグイン設定では以下の設定ができます。  
 
-| 設定名 | 説明 |
-| --- | --- |
-| vrchat-status-helper path | vrchat-status-helperのパス |
+| 設定名 | 値 | デフォルト | 説明 |
+| --- | --- | --- | --- |
+| vrchat-status-helper path | `ファイル` | `vrchat-status-helper` | vrchat-status-helperのパス |
 
 ウィジェット設定では以下の設定ができます。  
-| 設定名 | 値 |説明 |
-| --- | --- |--- |
-| Join Me | `色` |Join Meステータスの色 |
-| Online | `色` |Onlineステータスの色 |
-| Ask Me | `色` |Ask Meステータスの色 |
-| Do Not Disturb | `色` |Do Not Disturbステータスの色 |
-| Offline | `色` | Offlineステータスの色 |
-| Status message color | `Fixed color` `Match status` | ステータスメッセージの色モード |
-| Fixed message color | `色` | `Fixed Color`の場合のメッセージの色 |
-| Min Length | `整数` | ウィジェットの最小サイズ |
-| Max Length | `整数` | ウィジェットの最大サイズ |
+| 設定名 | 値 | デフォルト |説明 |
+| --- | --- |--- | --- |
+| Join Me | `色` | `#3B82F6` |Join Meステータスの色 |
+| Online | `色` | `#3CB371` | Onlineステータスの色 |
+| Ask Me | `色` | `#F59E0B` | Ask Meステータスの色 |
+| Do Not Disturb | `#EF4444` | `色` | Do Not Disturbステータスの色 |
+| Offline | `色` | `#6B7280` | Offlineステータスの色 |
+| Status message color | `Match status` | `Match status` `Fixed color` | ステータスメッセージの色モード |
+| Fixed message color | `色` | `#FFFFFF` |`Fixed Color`の場合のメッセージの色 |
+| Min Length | `整数` | `100` | ウィジェットの最小サイズ |
+| Max Length | `整数` | `300` | ウィジェットの最大サイズ |
 
 ## 注意事項
 

@@ -81,23 +81,23 @@ noctalia msg panel-toggle surumeika1987/vrchat-status:status-panel
 
 The following option is available in the plugin settings:
 
-| Setting | Description |
-| --- | --- |
-| vrchat-status-helper path | Path to `vrchat-status-helper` |
+| Setting | Value | Default | Description |
+| --- | --- | --- | --- |
+| vrchat-status-helper path | `File` | `vrchat-status-helper` | Path to `vrchat-status-helper` |
 
 The following options are available in the widget settings:
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| Join Me | `Color` | Color of the Join Me status |
-| Online | `Color` | Color of the Online status |
-| Ask Me | `Color` | Color of the Ask Me status |
-| Do Not Disturb | `Color` | Color of the Do Not Disturb status |
-| Offline | `Color` | Color of the Offline status |
-| Status message color | `Fixed color` `Match status` | Color mode for the status message |
-| Fixed message color | `Color` | Message color used when `Fixed color` is selected |
-| Min Length | `Integer` | Minimum widget size |
-| Max Length | `Integer` | Maximum widget size |
+| Setting | Value | Default | Description |
+| --- | --- | --- | --- |
+| Join Me | `Color` | `#3B82F6` | Color of the Join Me status |
+| Online | `Color` | `#3CB371` | Color of the Online status |
+| Ask Me | `Color` | `#F59E0B` | Color of the Ask Me status |
+| Do Not Disturb | `Color` | `#EF4444` | Color of the Do Not Disturb status |
+| Offline | `Color` | `#6B7280` | Color of the Offline status |
+| Status message color | `Match status` `Fixed color` | `Match status` | Color mode for the status message |
+| Fixed message color | `Color` | `#FFFFFF` | Message color used when `Fixed color` is selected |
+| Min Length | `Integer` | `100` | Minimum widget size |
+| Max Length | `Integer` | `300` | Maximum widget size |
 
 ## Disclaimer
 
