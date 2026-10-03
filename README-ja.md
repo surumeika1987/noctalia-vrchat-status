@@ -23,7 +23,7 @@ VRChatのステータスをNoctaliaのバーに表示し、パネルから変更
 
 `vrchat-status-helper`をリポジトリからダウンロードするか、ソースコードからビルドしてください。
 
-[noctalia-vrchat-status](https://github.com/surumeika1987/noctalia-vrchat-status)
+[noctalia-vrchat-status-helper](https://github.com/surumeika1987/noctalia-vrchat-status-helper)
 
 `vrchat-status-helper`を`PATH`の通った場所に配置します。
 

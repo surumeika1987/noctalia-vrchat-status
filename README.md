@@ -23,7 +23,8 @@ Place `vrchat-status-helper` in a directory included in your `PATH`, or specify 
 
 Download `vrchat-status-helper` from the repository, or build it from source.
 
-[noctalia-vrchat-status](https://github.com/surumeika1987/noctalia-vrchat-status)
+[noctalia-vrchat-status-helper](https://github.com/surumeika1987/noctalia-vrchat-status-helper)
+
 
 Place `vrchat-status-helper` in a directory included in your `PATH`.
 
