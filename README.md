@@ -75,6 +75,26 @@ To open it directly via IPC, use the following command:
 noctalia msg panel-toggle surumeika1987/vrchat-status:status-panel
 ```
 
+## Settings
+
+The following option is available in the plugin settings:
+
+| Setting | Description |
+| --- | --- |
+| vrchat-status-helper path | Path to `vrchat-status-helper` |
+
+The following options are available in the widget settings:
+
+| Setting | Value | Description |
+| --- | --- | --- |
+| Join Me | `Color` | Color of the Join Me status |
+| Online | `Color` | Color of the Online status |
+| Ask Me | `Color` | Color of the Ask Me status |
+| Do Not Disturb | `Color` | Color of the Do Not Disturb status |
+| Offline | `Color` | Color of the Offline status |
+| Status message color | `Fixed color` `Match status` | Color mode for the status message |
+| Fixed message color | `Color` | Message color used when `Fixed color` is selected |
+
 ## Disclaimer
 
 This plugin uses the VRChat API.

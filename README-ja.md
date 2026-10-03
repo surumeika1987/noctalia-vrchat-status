@@ -74,6 +74,24 @@ IPCから直接開く場合は、以下のコマンドを使用します。
 noctalia msg panel-toggle surumeika1987/vrchat-status:status-panel
 ```
 
+## 設定
+プラグイン設定では以下の設定ができます。  
+
+| 設定名 | 説明 |
+| --- | --- |
+| vrchat-status-helper path | vrchat-status-helperのパス |
+
+ウィジェット設定では以下の設定ができます。  
+| 設定名 | 値 |説明 |
+| --- | --- |--- |
+| Join Me | `色` |Join Meステータスの色 |
+| Online | `色` |Onlineステータスの色 |
+| Ask Me | `色` |Ask Meステータスの色 |
+| Do Not Disturb | `色` |Do Not Disturbステータスの色 |
+| Offline | `色` | Offlineステータスの色 |
+| Status message color | `Fixed color` `Match status` | ステータスメッセージの色モード |
+| Fixed message color | `色` | `Fixed Color`の場合のメッセージの色 |
+
 ## 注意事項
 
 本プラグインではVRChat APIを使用します。
