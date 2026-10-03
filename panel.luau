@@ -2,7 +2,12 @@
 
 local statusNumber = 0
 local statusMessage = noctalia.tr("default.status.message")
-local statusNames = { "Join Me", "Online", "Ask Me", "Do Not Disturb" }
+local statusNames = {
+  noctalia.tr("panel.status.join_me"),
+  noctalia.tr("panel.status.online"),
+  noctalia.tr("panel.status.ask_me"),
+  noctalia.tr("panel.status.do_not_disturb"),
+}
 local isOpen = false
 local inputRevision = 0
 local messageDirty = false

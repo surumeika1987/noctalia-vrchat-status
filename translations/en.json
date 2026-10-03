@@ -51,6 +51,10 @@
   "panel": {
     "status": {
       "label": "Status",
+      "join_me": "Join Me",
+      "online": "Online",
+      "ask_me": "Ask Me",
+      "do_not_disturb": "Do Not Disturb",
       "offline": "Offline"
     },
     "message": {
