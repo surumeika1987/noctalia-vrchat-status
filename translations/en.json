@@ -36,6 +36,18 @@
       "description": "Maximum widget length in pixels; longer messages are shortened."
     }
   },
+  "defalut": {
+      "status": {
+          "message": "Connecting to helper..."
+      }
+  },
+  "error": {
+    "message": {
+      "helper_path_not_configured": "Configure the helper path first.",
+      "helper_contact_failed": "Could not contact helper",
+      "helper_start_failed": "Could not start helper"
+    }
+  },
   "panel": {
     "status": {
       "label": "Status",

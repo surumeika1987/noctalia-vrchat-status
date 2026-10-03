@@ -1,7 +1,7 @@
 --!nonstrict
 
 local statusNumber = 0
-local statusMessage = "Connecting to helper..."
+local statusMessage = noctalia.tr("defalut.status.message")
 local hasHelperData = noctalia.state.get("status_received") == true
 local requestInFlight = false
 local REQUEST_INTERVAL_MS = 5000

@@ -1,7 +1,7 @@
 --!nonstrict
 
 local statusNumber = 0
-local statusMessage = "Connecting to helper..."
+local statusMessage = noctalia.tr("defalut.status.message")
 local statusNames = { "Join Me", "Online", "Ask Me", "Do Not Disturb" }
 local isOpen = false
 local inputRevision = 0
@@ -18,7 +18,7 @@ local function sendPayload(payload)
 
   local helper = noctalia.getConfig("helper_path")
   if type(helper) ~= "string" or helper == "" then
-    noctalia.notifyError("VRChat Status", "Configure the helper path first.")
+    noctalia.notifyError("VRChat Status", noctalia.tr("error.message.helper_path_not_configured"))
     return false
   end
 
@@ -26,7 +26,10 @@ local function sendPayload(payload)
   local started = noctalia.runAsync({ helper, "msg", "push-status", payload }, function(result)
     sendInFlight = false
     if result.exitCode ~= 0 then
-      noctalia.notifyError("VRChat Status", result.stderr ~= "" and result.stderr or "Could not contact helper")
+      noctalia.notifyError(
+        "VRChat Status",
+        result.stderr ~= "" and result.stderr or noctalia.tr("error.message.helper_contact_failed")
+      )
     end
 
     if pendingPayload ~= nil then
@@ -37,7 +40,7 @@ local function sendPayload(payload)
   end)
   if not started then
     sendInFlight = false
-    noctalia.notifyError("VRChat Status", "Could not start helper")
+    noctalia.notifyError("VRChat Status", noctalia.tr("error.message.helper_start_failed"))
     return false
   end
   return true
