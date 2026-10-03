@@ -1,7 +1,7 @@
 --!nonstrict
 
 local statusNumber = 0
-local statusMessage = noctalia.tr("defalut.status.message")
+local statusMessage = noctalia.tr("default.status.message")
 local statusNames = { "Join Me", "Online", "Ask Me", "Do Not Disturb" }
 local isOpen = false
 local inputRevision = 0

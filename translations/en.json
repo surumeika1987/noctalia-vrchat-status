@@ -36,7 +36,7 @@
       "description": "Maximum widget length in pixels; longer messages are shortened."
     }
   },
-  "defalut": {
+  "default": {
       "status": {
           "message": "Connecting to helper..."
       }
