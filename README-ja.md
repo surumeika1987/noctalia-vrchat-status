@@ -54,10 +54,11 @@ end)
 
 プラグインマネージャーから本プラグインをインストールしてください。
 
-手動でインストールする場合はリポジトリをダウンロードし、`vrchat-status`フォルダを以下のディレクトリにコピーします。
-
-```text
-$HOME/.local/share/noctalia/plugins/
+手動でインストールする場合は次のコマンドを実行します。  
+```sh
+mkdir -p $HOME/.local/share/noctalia/plugins
+git clone https://github.com/surumeika1987/noctalia-vrchat-status.git \
+    $HOME/.local/share/noctalia/plugins/vrchat-status
 ```
 
 その後、Noctaliaの設定画面から`surumeika1987/vrchat-status`を有効にします。

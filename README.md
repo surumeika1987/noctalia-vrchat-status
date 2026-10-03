@@ -55,10 +55,12 @@ end)
 
 Install this plugin from the plugin manager.
 
-To install it manually, download the repository and copy the `vrchat-status` folder to the following directory:
+To install it manually, run the following commands:
 
-```text
-$HOME/.local/share/noctalia/plugins/
+```sh
+mkdir -p $HOME/.local/share/noctalia/plugins
+git clone https://github.com/surumeika1987/noctalia-vrchat-status.git \
+    $HOME/.local/share/noctalia/plugins/vrchat-status
 ```
 
 Then enable `surumeika1987/vrchat-status` from the Noctalia settings screen.
