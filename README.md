@@ -31,7 +31,7 @@ Place `vrchat-status-helper` in a directory included in your `PATH`.
 Example:
 
 ```sh
-${HOME}/.local/bin/vrchat-status-helper
+$HOME/.local/bin/vrchat-status-helper
 ```
 
 Next, run the following command to log in to VRChat.
@@ -58,7 +58,7 @@ Install this plugin from the plugin manager.
 To install it manually, download the repository and copy the `vrchat-status` folder to the following directory:
 
 ```text
-${HOME}/.local/share/noctalia/plugins/
+$HOME/.local/share/noctalia/plugins/
 ```
 
 Then enable `surumeika1987/vrchat-status` from the Noctalia settings screen.
@@ -137,5 +137,8 @@ noctalia msg plugin surumeika1987/vrchat-status:status all push-status '4:Test M
 
 ## Notes
 **API**: This plugin uses the unofficial `VRChatAPI`.  
-**Authentication**: Cookies are stored in `${HOME}/.cache/noctalia/vrchat-status`.  
+**Authentication**:
+Cookies are stored in `$XDG_CACHE_HOME/noctalia/vrchat-status/cookies.txt`, or in  
+`~/.cache/noctalia/vrchat-status/cookies.txt`, with `0600` permissions.  
 **Process**: The external `vrchat-status-helper` application is required.  
+**Socket**: `vrchat-status-helper` creates a Unix domain socket at `$XDG_RUNTIME_DIR/vrchat-status-helper.sock`.  

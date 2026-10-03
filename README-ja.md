@@ -30,7 +30,7 @@ VRChatのステータスをNoctaliaのバーに表示し、パネルから変更
 例:
 
 ```sh
-${HOME}/.local/bin/vrchat-status-helper
+$HOME/.local/bin/vrchat-status-helper
 ```
 
 次に、以下のコマンドを実行してVRChatにログインしてください。
@@ -57,7 +57,7 @@ end)
 手動でインストールする場合はリポジトリをダウンロードし、`vrchat-status`フォルダを以下のディレクトリにコピーします。
 
 ```text
-${HOME}/.local/share/noctalia/plugins/
+$HOME/.local/share/noctalia/plugins/
 ```
 
 その後、Noctaliaの設定画面から`surumeika1987/vrchat-status`を有効にします。
@@ -134,5 +134,8 @@ noctalia msg plugin surumeika1987/vrchat-status:status all push-status '4:Test M
 
 ## ノート
 **API**: 非公式の`VRChatAPI`を利用しています。  
-**認証**: クッキーを`${HOME}/.cache/noctalia/vrchat-status`に保存しています。  
+**認証**:
+クッキーを`$XDG_CACHE_HOME/noctalia/vrchat-status/cookies.txt`又は  
+`~/.cache/noctalia/vrchat-status/cookies.txt`に権限`0600`で保存します。  
 **プロセス**: 外部ソフトウェア`vrchat-status-helper`が必要です。  
+**ソケット**: `vrchat-status-helper`はUnixソケットを`$XDG_RUNTIME_DIR/vrchat-status-helper.sock`に作成します。  
